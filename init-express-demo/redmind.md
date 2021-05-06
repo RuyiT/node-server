@@ -9,6 +9,8 @@
    应用默认监听的端口是3000，然后访问localhost:3000
 5. app.js注册路由 
 6. 隐藏掉 app.js里面没用到的代码
+7. npm install -g nodemon    --- nodemon是一个自动重启node应用的工具，当监听的文件或监听目录下的文件发生修改时，自动重启应用
+   #see https://juejin.cn/post/6844904191316459527
 
 ### 初始化
 1. npm install --save mysql 
@@ -28,7 +30,8 @@
 2. 用req.session保存登陆信息
 
 ### redis
-#See https://segmentfault.com/a/1190000015882650
+#See  https://segmentfault.com/a/1190000015882650
+#See      https://cloud.tencent.com/developer/article/1685410
 1. https://github.com/MicrosoftArchive/redis/releases  ---下载地址
 2. 解压，解压到D:redis目录下
 3. 打开一个 cmd 窗口，运行 redis-server.exe redis.windows.conf
@@ -39,6 +42,25 @@
 -node
 4. npm install redis --save
    npm install connect-redis --save
-   npm install redis connnect-redis --save
+   npm install redis connect-redis --save
 5. 然后在db里面创建一个redis.js配置文件
 
+### mysql
+#See https://zhuanlan.zhihu.com/p/37152572
+
+### nginx
+#See https://www.cnblogs.com/taiyonghai/p/9402734.html
+
+```
+location / {
+   root html;
+   try_files  $uri $uri/ /index.html;
+   # proxy_pass http://localhost:8080;
+}
+
+location /home/api/ {
+   proxy_pass http://localhost:3000/;
+   proxy_set_header Host $host;
+}
+        
+```

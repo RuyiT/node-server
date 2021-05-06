@@ -9,13 +9,15 @@ const {
 // post请求
 router.post('/login', function(req, res, next) {
     const { username, password } = req.body
+    console.log("body: ", req.body)
     const result = login(username, password)
     return result.then(data => {
+        console.log("data.user: ", data.username)
         if (data.username) {
             // 设置 session
             req.session.username = data.username
             req.session.realname = data.realname
-            res.json(new SuccessModel())
+            res.json(new SuccessModel('登陆成功'))
             return
         } 
         res.json(new ErrorModel('登陆失败'))
@@ -28,6 +30,13 @@ router.post('/login', function(req, res, next) {
     //         password
     //     }
     // })
+});
+
+router.get('/getUserInfo', function(req, res, next) {
+    res.json({
+        errno: 0,
+        msg: 'userinfo'
+    })
 });
 
 // 测试登陆
@@ -44,7 +53,7 @@ router.get('/login-test', function(req, res, next) {
         errno: -1,
         msg: '未登陆'
     })
- });
+});
 
 // 放开就可以测试session
 // router.get('/session-test', function(req, res, next) {

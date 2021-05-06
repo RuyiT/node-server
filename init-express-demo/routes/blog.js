@@ -14,7 +14,8 @@ const {
 } = require('../model/resModel')
 
 // 请求的api实际为 '/api/blog/list'
-router.get('/list', function(req, res, next) {
+router.get('/getTableData', function(req, res, next) {
+  console.log('get-table-data --------------------')
   let author = req.query.author || ''
   const keyword = req.query.keyword || ''
   const result = getList(author, keyword)
@@ -27,11 +28,18 @@ router.get('/list', function(req, res, next) {
   }) 
 });
 
-router.get('/detail', function(req, res, next) {
+router.get('/getBlogData', function(req, res, next) {
     res.json({
         errno: 0,
         data: 'ok'
     })
   });
+
+router.post('/addList', function(req, res, next) {
+  res.json({
+      errno: 0,
+      data: 'ok'
+  })
+});
 
 module.exports = router;
