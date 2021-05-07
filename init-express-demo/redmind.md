@@ -1,5 +1,6 @@
 # express 项目初始化
-- 参考： http://shouce.jb51.net/yiqixue-nodejs/book/3.4.html
+- 参考：  http://shouce.jb51.net/yiqixue-nodejs/book/3.4.html
+         https://juejin.cn/post/6844903958545170439
 
 ## 操作
 1. 安装Express生成器: npm install -g express-generator
@@ -46,7 +47,8 @@
 5. 然后在db里面创建一个redis.js配置文件
 
 ### mysql
-#See https://zhuanlan.zhihu.com/p/37152572
+#See https://zhuanlan.zhihu.com/p/37152572 安装
+#See https://cloud.tencent.com/developer/article/1540854
 
 ### nginx
 #See https://www.cnblogs.com/taiyonghai/p/9402734.html
